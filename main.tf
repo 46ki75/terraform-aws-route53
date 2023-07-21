@@ -22,18 +22,10 @@ module "zones" {
 
 # 46ki75.com
 module "records" {
-  source = "./modules/route53/records"
+  source    = "./modules/route53/records"
   zone_name = "46ki75.com"
 
   records = [
-    {
-      name = ""
-      type = "A"
-      ttl  = 3600
-      records = [
-        "157.7.206.73",
-      ]
-    },
     {
       name = ""
       type = "MX"
@@ -82,6 +74,12 @@ module "records" {
       records = ["v=TLSRPTv1; rua=mailto:tls-rpt@46ki75.com"]
     },
     # qualia A records --------------------
+    {
+      name    = ""
+      type    = "A"
+      ttl     = 3600
+      records = local.qualia
+    },
     {
       name    = "admin"
       type    = "A"
