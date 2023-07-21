@@ -3,23 +3,6 @@ locals {
   bulk   = ["157.7.202.115"]
 }
 
-module "zones" {
-  source = "./modules/route53/zones"
-
-  zones = {
-    "46ki75.com" = {
-      comment = "created by Terraform"
-      tags = {
-        Name = "46ki75.com"
-      }
-    }
-  }
-
-  tags = {
-    ManagedBy = "Terraform"
-  }
-}
-
 # 46ki75.com
 module "records" {
   source    = "./modules/route53/records"
@@ -137,5 +120,4 @@ module "records" {
     }
   ]
 
-  depends_on = [module.zones]
 }
