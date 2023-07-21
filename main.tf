@@ -81,6 +81,7 @@ module "records" {
       ttl     = 300
       records = ["v=TLSRPTv1; rua=mailto:tls-rpt@46ki75.com"]
     },
+    # qualia A records --------------------
     {
       name    = "admin"
       type    = "A"
@@ -117,6 +118,7 @@ module "records" {
       ttl     = 300
       records = local.qualia
     },
+    # bulk A records --------------------
     {
       name    = "bulk"
       type    = "A"
