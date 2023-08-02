@@ -4,8 +4,8 @@ locals {
 }
 
 # 46ki75.com
-module "records" {
-  source    = "./modules/route53/records"
+module "records_46ki75_com" {
+  source    = "terraform-aws-modules/route53/aws//modules/records"
   zone_name = "46ki75.com"
 
   records = [
@@ -27,7 +27,8 @@ module "records" {
       ttl  = 3600
       records = [
         "v=spf1 include:_spf.google.com ~all",
-        "google-site-verification=aR0pJV9ZdkMUbANgaKTpaXhuhPh5Y4-VfuQRURYJ-U8"
+        "google-site-verification=aR0pJV9ZdkMUbANgaKTpaXhuhPh5Y4-VfuQRURYJ-U8",
+        "zoho-verification=zb28160163.zmverify.zoho.jp"
       ]
     },
     {
@@ -99,6 +100,12 @@ module "records" {
       ttl     = 300
       records = local.qualia
     },
+    {
+      name    = "dev.amplify"
+      type    = "A"
+      ttl     = 300
+      records = local.qualia
+    },
     # bulk A records --------------------
     {
       name    = "bulk"
@@ -117,6 +124,35 @@ module "records" {
       type    = "A"
       ttl     = 300
       records = local.bulk
+    }
+  ]
+
+}
+
+
+# 46ki75.link
+module "records_46ki75_link" {
+  source    = "terraform-aws-modules/route53/aws//modules/records"
+  zone_name = "46ki75.link"
+
+  records = [
+    {
+      name    = "_github-pages-challenge-46ki75"
+      type    = "TXT"
+      ttl     = 300
+      records = ["bf36e1218e0252fe2cec73bb4184ec"]
+    },
+    {
+      name    = ""
+      type    = "A"
+      ttl     = 3600
+      records = ["185.199.108.153", "185.199.109.153", "185.199.110.153", "185.199.111.153"]
+    },
+    {
+      name    = "www"
+      type    = "CNAME"
+      ttl     = 300
+      records = ["46ki75.github.io"]
     }
   ]
 
