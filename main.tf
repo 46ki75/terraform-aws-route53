@@ -28,8 +28,14 @@ module "records_46ki75_com" {
       records = [
         "v=spf1 include:_spf.google.com ~all",
         "google-site-verification=aR0pJV9ZdkMUbANgaKTpaXhuhPh5Y4-VfuQRURYJ-U8",
-        "zoho-verification=zb28160163.zmverify.zoho.jp"
       ]
+    },
+    // GitHub Domain Verification
+    {
+      name    = "_github-pages-challenge-46ki75"
+      type    = "TXT"
+      ttl     = 3600
+      records = ["3934751b91183b4dccdfaf12974966"]
     },
     {
       name    = "_dmarc"
@@ -136,6 +142,7 @@ module "records_46ki75_link" {
   zone_name = "46ki75.link"
 
   records = [
+    // GitHub Domain Verification
     {
       name    = "_github-pages-challenge-46ki75"
       type    = "TXT"
