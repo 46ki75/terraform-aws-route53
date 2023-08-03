@@ -4,7 +4,6 @@
     "forwardPorts": [
         8080
     ],
-    "postCreateCommand": "terraform init",
     "customizations": {
         "vscode": {
             "extensions": [
