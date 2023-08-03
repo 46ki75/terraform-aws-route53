@@ -9,7 +9,6 @@
             },
             "extensions": [
                 "ms-vscode-remote.vscode-remote-extensionpack",
-                "Shan.code-settings-sync",
                 "akamud.vscode-theme-onedark"
             ]
         }
