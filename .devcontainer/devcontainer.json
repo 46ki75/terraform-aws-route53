@@ -4,11 +4,16 @@
     "forwardPorts": [
         8080
     ],
+    "postCreateCommand": "terraform init",
     "customizations": {
         "vscode": {
+            "settings": {
+                "workbench.colorTheme": "Atom One Dark"
+            },
             "extensions": [
                 "ms-vscode-remote.vscode-remote-extensionpack",
-                "Shan.code-settings-sync"
+                "Shan.code-settings-sync",
+                "akamud.vscode-theme-onedark"
             ]
         }
     }
