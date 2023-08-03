@@ -1,9 +1,6 @@
 {
     "name": "Terraform Dev Container",
     "dockerFile": "Dockerfile",
-    "forwardPorts": [
-        8080
-    ],
     "postCreateCommand": "terraform init",
     "customizations": {
         "vscode": {
