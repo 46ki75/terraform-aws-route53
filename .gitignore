@@ -1,1 +1,14 @@
-.terraform/
+# Terraform関連
+*.tfstate
+*.tfstate.*
+*.tfplan
+*.terraform/
+
+# Editor/OS関連
+*.backup
+*.swp
+*.bak
+*.DS_Store
+*.log
+*.tmp
+.vscode/
