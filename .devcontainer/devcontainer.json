@@ -4,5 +4,13 @@
     "forwardPorts": [
         8080
     ],
-    "postCreateCommand": "terraform init"
+    "postCreateCommand": "terraform init",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-vscode-remote.vscode-remote-extensionpack",
+                "Shan.code-settings-sync"
+            ]
+        }
+    }
 }
