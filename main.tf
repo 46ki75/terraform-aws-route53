@@ -86,12 +86,6 @@ module "records_46ki75_com" {
       ttl     = 300
       records = local.qualia
     },
-    {
-      name    = "dev.amplify"
-      type    = "A"
-      ttl     = 300
-      records = local.qualia
-    },
     # bulk A records --------------------
     {
       name    = "bulk"
