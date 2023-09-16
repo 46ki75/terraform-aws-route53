@@ -56,13 +56,6 @@ module "records_46ki75_com" {
       ttl     = 300
       records = ["v=TLSRPTv1; rua=mailto:tls-rpt@46ki75.com"]
     },
-    # qualia A records --------------------
-    {
-      name    = ""
-      type    = "A"
-      ttl     = 3600
-      records = local.qualia
-    },
     {
       name    = "admin"
       type    = "A"
@@ -83,12 +76,6 @@ module "records_46ki75_com" {
     },
     {
       name    = "phpmyadmin"
-      type    = "A"
-      ttl     = 300
-      records = local.qualia
-    },
-    {
-      name    = "www"
       type    = "A"
       ttl     = 300
       records = local.qualia
