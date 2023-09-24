@@ -104,30 +104,15 @@ module "records_46ki75_com" {
       type    = "A"
       ttl     = 300
       records = local.bulk
-    }
-  ]
-
-}
-
-
-# 46ki75.link
-module "records_46ki75_link" {
-  source    = "terraform-aws-modules/route53/aws//modules/records"
-  zone_name = "46ki75.link"
-
-  records = [
-    {
-      name    = ""
-      type    = "A"
-      ttl     = 3600
-      records = ["185.199.108.153", "185.199.109.153", "185.199.110.153", "185.199.111.153"]
     },
+    # GitHub --------------------
     {
-      name    = "www"
-      type    = "CNAME"
+      name    = "_github-pages-challenge-46ki75"
+      type    = "TXT"
       ttl     = 300
-      records = ["46ki75.github.io"]
+      records = "3934751b91183b4dccdfaf12974966"
     }
   ]
 
 }
+
