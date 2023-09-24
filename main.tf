@@ -110,7 +110,7 @@ module "records_46ki75_com" {
       name    = "_github-pages-challenge-46ki75"
       type    = "TXT"
       ttl     = 300
-      records = "3934751b91183b4dccdfaf12974966"
+      records = ["3934751b91183b4dccdfaf12974966"]
     }
   ]
 
