@@ -114,7 +114,7 @@ module "records_46ki75_com" {
     },
     # GitHub Pages --------------------
     {
-      name    = "_github-pages-challenge-46ki75"
+      name    = "docs"
       type    = "CNAME"
       ttl     = 300
       records = ["46ki75.github.io"]
