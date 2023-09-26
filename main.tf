@@ -112,7 +112,13 @@ module "records_46ki75_com" {
       ttl     = 300
       records = ["3934751b91183b4dccdfaf12974966"]
     },
-    # Netlify Docusaurus --------------------
+    # GitHub Pages --------------------
+    {
+      name    = "docs"
+      type    = "CNAME"
+      ttl     = 300
+      records = ["46ki75.github.io"]
+    }
   ]
 
 }
