@@ -111,6 +111,13 @@ module "records_46ki75_com" {
       type    = "TXT"
       ttl     = 300
       records = ["3934751b91183b4dccdfaf12974966"]
+    },
+    # GitHub Pages --------------------
+    {
+      name    = "_github-pages-challenge-46ki75"
+      type    = "CNAME"
+      ttl     = 300
+      records = ["46ki75.github.io"]
     }
   ]
 
