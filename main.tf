@@ -100,7 +100,7 @@ module "records_46ki75_com" {
       records = local.bulk
     },
     {
-      name    = "dynmap"
+      name    = "nmap"
       type    = "A"
       ttl     = 300
       records = local.bulk
