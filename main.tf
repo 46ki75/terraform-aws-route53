@@ -1,5 +1,5 @@
 locals {
-  qualia = ["157.7.206.73"]
+  qualia = ["157.7.112.221"]
   bulk   = ["157.7.202.115"]
 }
 
@@ -55,6 +55,13 @@ module "records_46ki75_com" {
       type    = "TXT"
       ttl     = 300
       records = ["v=TLSRPTv1; rua=mailto:tls-rpt@46ki75.com"]
+    },
+    # qualia A records --------------------
+    {
+      name    = "qualia"
+      type    = "A"
+      ttl     = 300
+      records = local.qualia
     },
     # bulk A records --------------------
     {
