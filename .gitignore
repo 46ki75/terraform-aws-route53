@@ -3,7 +3,6 @@
 *.tfstate.*
 *.tfplan
 *.terraform/
-.terraform.lock.hcl
 
 # Editor/OS関連
 *.backup
