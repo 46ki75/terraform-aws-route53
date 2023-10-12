@@ -95,7 +95,13 @@ module "records_46ki75_com" {
       type    = "CNAME"
       ttl     = 300
       records = ["46ki75.github.io"]
-    }
+    },
+    {
+      name    = "internal"
+      type    = "CNAME"
+      ttl     = 300
+      records = ["46ki75.github.io"]
+    },
   ]
 
 }
