@@ -129,10 +129,10 @@ resource "aws_route53_record" "github_pages_docs_record" {
 }
 
 # GitHub Pages CNAMEレコード (internal)
-resource "aws_route53_record" "github_pages_internal_record" {
+resource "aws_route53_record" "vercel_internal_record" {
   zone_id = data.aws_route53_zone.zone.zone_id
   name    = "internal.46ki75.com"
   type    = "CNAME"
   ttl     = 300
-  records = ["46ki75.github.io"]
+  records = ["cname.vercel-dns.com."]
 }
