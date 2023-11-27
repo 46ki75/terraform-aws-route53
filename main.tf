@@ -134,5 +134,5 @@ resource "aws_route53_record" "vercel_internal_record" {
   name    = "internal.46ki75.com"
   type    = "CNAME"
   ttl     = 300
-  records = ["cname.vercel-dns.com."]
+  records = ["cname.vercel-dns.com"]
 }
