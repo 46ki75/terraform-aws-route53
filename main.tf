@@ -10,18 +10,40 @@ data "aws_route53_zone" "zone" {
 }
 
 # MXレコード
-resource "aws_route53_record" "mx_record" {
+# resource "aws_route53_record" "mx_record" {
+#   zone_id = data.aws_route53_zone.zone.zone_id
+#   name    = "46ki75.com"
+#   type    = "MX"
+#   ttl     = 3600
+#   records = [
+#     "1 ASPMX.L.GOOGLE.COM",
+#     "5 ALT1.ASPMX.L.GOOGLE.COM",
+#     "5 ALT2.ASPMX.L.GOOGLE.COM",
+#     "10 ALT3.ASPMX.L.GOOGLE.COM",
+#     "10 ALT4.ASPMX.L.GOOGLE.COM"
+#   ]
+# }
+
+# zoho
+resource "aws_route53_record" "mx_records" {
   zone_id = data.aws_route53_zone.zone.zone_id
   name    = "46ki75.com"
   type    = "MX"
-  ttl     = 3600
+  ttl     = 300
   records = [
-    "1 ASPMX.L.GOOGLE.COM",
-    "5 ALT1.ASPMX.L.GOOGLE.COM",
-    "5 ALT2.ASPMX.L.GOOGLE.COM",
-    "10 ALT3.ASPMX.L.GOOGLE.COM",
-    "10 ALT4.ASPMX.L.GOOGLE.COM"
+    "10 mx.zoho.jp",
+    "20 mx2.zoho.jp",
+    "50 mx3.zoho.jp",
   ]
+}
+
+
+resource "aws_route53_record" "dkim_record" {
+  zone_id = data.aws_route53_zone.zone.zone_id
+  name    = "zmail._domainkey.46ki75.com"
+  type    = "TXT"
+  ttl     = 300
+  records = ["\"v=DKIM1; k=rsa; p=MIGfMA0GC...DAQAB\""]
 }
 
 # TXTレコード
@@ -31,7 +53,8 @@ resource "aws_route53_record" "txt_record" {
   type    = "TXT"
   ttl     = 3600
   records = [
-    "v=spf1 include:_spf.google.com ~all",
+    # "v=spf1 include:_spf.google.com ~all",
+    "v=spf1 include:zoho.jp ~all",
     "google-site-verification=aR0pJV9ZdkMUbANgaKTpaXhuhPh5Y4-VfuQRURYJ-U8",
     "zoho-verification=zb87728988.zmverify.zoho.jp"
   ]
