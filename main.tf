@@ -32,20 +32,21 @@ resource "aws_route53_record" "txt_record" {
   ttl     = 3600
   records = [
     "v=spf1 include:_spf.google.com ~all",
-    "google-site-verification=aR0pJV9ZdkMUbANgaKTpaXhuhPh5Y4-VfuQRURYJ-U8"
+    "google-site-verification=aR0pJV9ZdkMUbANgaKTpaXhuhPh5Y4-VfuQRURYJ-U8",
+    "zoho-verification=zb87728988.zmverify.zoho.jp"
   ]
 }
 
 # 別のTXTレコード
-resource "aws_route53_record" "txt_record_2" {
-  zone_id = data.aws_route53_zone.zone.zone_id
-  name    = ""
-  type    = "TXT"
-  ttl     = 3600
-  records = [
-    "zoho-verification=zb87728988.zmverify.zoho.jp"
-  ]
-}
+# resource "aws_route53_record" "txt_record_2" {
+#   zone_id = data.aws_route53_zone.zone.zone_id
+#   name    = ""
+#   type    = "TXT"
+#   ttl     = 3600
+#   records = [
+#     "zoho-verification=zb87728988.zmverify.zoho.jp"
+#   ]
+# }
 
 # DMARCレコード
 resource "aws_route53_record" "dmarc_record" {
