@@ -36,9 +36,8 @@ resource "aws_route53_record" "txt_record" {
   ]
 }
 
-
-# TXTレコード
-resource "aws_route53_record" "txt_record" {
+# 別のTXTレコード
+resource "aws_route53_record" "txt_record_2" {
   zone_id = data.aws_route53_zone.zone.zone_id
   name    = "@"
   type    = "TXT"
