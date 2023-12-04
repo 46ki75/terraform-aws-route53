@@ -43,7 +43,7 @@ resource "aws_route53_record" "dkim_record" {
   name    = "zmail._domainkey.46ki75.com"
   type    = "TXT"
   ttl     = 300
-  records = ["\"v=DKIM1; k=rsa; p=MIGfMA0GC...DAQAB\""]
+  records = ["v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCBoQakPERf1XiC2y+zguQOJieh2mBhW75Wzob3mFuKBrRAmOoI/zCzr6xFOpqUa7rOKc1r2A6O/K30GUEJMbiRRMXrN4b1/rkoheOAIJqTQPPaJGD1ocyH0ekrMwHXPuJbr3dkBxSGVn5R++9y18ZbyoNMK7Tpx6ZNF9LWEgKn/wIDAQAB"]
 }
 
 # TXTレコード
