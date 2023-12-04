@@ -60,17 +60,6 @@ resource "aws_route53_record" "txt_record" {
   ]
 }
 
-# 別のTXTレコード
-# resource "aws_route53_record" "txt_record_2" {
-#   zone_id = data.aws_route53_zone.zone.zone_id
-#   name    = ""
-#   type    = "TXT"
-#   ttl     = 3600
-#   records = [
-#     "zoho-verification=zb87728988.zmverify.zoho.jp"
-#   ]
-# }
-
 # DMARCレコード
 resource "aws_route53_record" "dmarc_record" {
   zone_id = data.aws_route53_zone.zone.zone_id
