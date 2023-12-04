@@ -9,22 +9,8 @@ data "aws_route53_zone" "zone" {
   private_zone = false
 }
 
-# MXレコード
-# resource "aws_route53_record" "mx_record" {
-#   zone_id = data.aws_route53_zone.zone.zone_id
-#   name    = "46ki75.com"
-#   type    = "MX"
-#   ttl     = 3600
-#   records = [
-#     "1 ASPMX.L.GOOGLE.COM",
-#     "5 ALT1.ASPMX.L.GOOGLE.COM",
-#     "5 ALT2.ASPMX.L.GOOGLE.COM",
-#     "10 ALT3.ASPMX.L.GOOGLE.COM",
-#     "10 ALT4.ASPMX.L.GOOGLE.COM"
-#   ]
-# }
-
 # zoho
+# MX
 resource "aws_route53_record" "mx_records" {
   zone_id = data.aws_route53_zone.zone.zone_id
   name    = "46ki75.com"
@@ -37,7 +23,7 @@ resource "aws_route53_record" "mx_records" {
   ]
 }
 
-
+# DKIM
 resource "aws_route53_record" "dkim_record" {
   zone_id = data.aws_route53_zone.zone.zone_id
   name    = "zmail._domainkey.46ki75.com"
@@ -46,56 +32,16 @@ resource "aws_route53_record" "dkim_record" {
   records = ["v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCBoQakPERf1XiC2y+zguQOJieh2mBhW75Wzob3mFuKBrRAmOoI/zCzr6xFOpqUa7rOKc1r2A6O/K30GUEJMbiRRMXrN4b1/rkoheOAIJqTQPPaJGD1ocyH0ekrMwHXPuJbr3dkBxSGVn5R++9y18ZbyoNMK7Tpx6ZNF9LWEgKn/wIDAQAB"]
 }
 
-# TXTレコード
+# TXT (spf, verify)
 resource "aws_route53_record" "txt_record" {
   zone_id = data.aws_route53_zone.zone.zone_id
   name    = "46ki75.com"
   type    = "TXT"
   ttl     = 3600
   records = [
-    # "v=spf1 include:_spf.google.com ~all",
     "v=spf1 include:zoho.jp ~all",
-    "google-site-verification=aR0pJV9ZdkMUbANgaKTpaXhuhPh5Y4-VfuQRURYJ-U8",
     "zoho-verification=zb87728988.zmverify.zoho.jp"
   ]
-}
-
-# DMARCレコード
-resource "aws_route53_record" "dmarc_record" {
-  zone_id = data.aws_route53_zone.zone.zone_id
-  name    = "_dmarc.46ki75.com"
-  type    = "TXT"
-  ttl     = 300
-  records = ["v=DMARC1; p=quarantine; rua=mailto:dmarc-reports@46ki75.com"]
-}
-
-# DKIMレコード
-# resource "aws_route53_record" "dkim_record" {
-#   zone_id = data.aws_route53_zone.zone.zone_id
-#   name    = "google._domainkey.46ki75.com"
-#   type    = "TXT"
-#   ttl     = 300
-#   records = [
-#     "v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC3jhN4rcZjLxJbUVqrpX8gBCU6G9QCPp3njHO1ehI3WKNz9gTdu/dM6rtZP2aep5zKNHf3OHPD5vF2r6WvoOIha+WWHZTri26n1eIzFGYgUM8FK6dSC/38kHd0YcRyJhW3vnKKB7zGFvOy1BmwPs/tS4+uTM+ImYcPJwEVOZdJ5QIDAQAB"
-#   ]
-# }
-
-# MTA-STSレコード
-resource "aws_route53_record" "mta_sts_record" {
-  zone_id = data.aws_route53_zone.zone.zone_id
-  name    = "_mta-sts.46ki75.com"
-  type    = "TXT"
-  ttl     = 300
-  records = ["v=STSv1; id=20190425085700"]
-}
-
-# TLSRPTレコード
-resource "aws_route53_record" "tlsrpt_record" {
-  zone_id = data.aws_route53_zone.zone.zone_id
-  name    = "_smtp.46ki75.com"
-  type    = "TXT"
-  ttl     = 300
-  records = ["v=TLSRPTv1; rua=mailto:tls-rpt@46ki75.com"]
 }
 
 # qualia Aレコード
