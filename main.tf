@@ -81,15 +81,15 @@ resource "aws_route53_record" "dmarc_record" {
 }
 
 # DKIMレコード
-resource "aws_route53_record" "dkim_record" {
-  zone_id = data.aws_route53_zone.zone.zone_id
-  name    = "google._domainkey.46ki75.com"
-  type    = "TXT"
-  ttl     = 300
-  records = [
-    "v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC3jhN4rcZjLxJbUVqrpX8gBCU6G9QCPp3njHO1ehI3WKNz9gTdu/dM6rtZP2aep5zKNHf3OHPD5vF2r6WvoOIha+WWHZTri26n1eIzFGYgUM8FK6dSC/38kHd0YcRyJhW3vnKKB7zGFvOy1BmwPs/tS4+uTM+ImYcPJwEVOZdJ5QIDAQAB"
-  ]
-}
+# resource "aws_route53_record" "dkim_record" {
+#   zone_id = data.aws_route53_zone.zone.zone_id
+#   name    = "google._domainkey.46ki75.com"
+#   type    = "TXT"
+#   ttl     = 300
+#   records = [
+#     "v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC3jhN4rcZjLxJbUVqrpX8gBCU6G9QCPp3njHO1ehI3WKNz9gTdu/dM6rtZP2aep5zKNHf3OHPD5vF2r6WvoOIha+WWHZTri26n1eIzFGYgUM8FK6dSC/38kHd0YcRyJhW3vnKKB7zGFvOy1BmwPs/tS4+uTM+ImYcPJwEVOZdJ5QIDAQAB"
+#   ]
+# }
 
 # MTA-STSレコード
 resource "aws_route53_record" "mta_sts_record" {
